@@ -1,0 +1,22 @@
+<body bgcolor="#d24dff">
+<%= @day %> & <%= @month %>
+<h1>
+<center>
+<%= if @day.to_i==Time.new.day
+     if @month.to_i ==Time.new.month
+      "Happy Birthday #{@name}!"
+      end
+    else
+   @birthday = Date.new(2019, @month.to_i, @day.to_i)
+    if Date.today < @birthday
+       days = @birthday - Date.today
+       "IT'S NOT YOUR BIRTHDAY! days until birthday: #{days.to_i}"
+    elsif Date.today > @birthday
+       dayz = 365 - (Date.today - @birthday)
+       "IT'S NOT YOUR BIRTHDAY! days until birthday: #{dayz.to_i}"
+    end
+  end
+  %>
+</center>
+</h1>
+</body>
